@@ -128,5 +128,82 @@ public class LinkedList {
             }
         }
     }
+    public void insertBefore(int key, int input) {
+        if (isEmpty()) {
+            System.out.println("Linked list kosong");
+            return;
+        }
+        Node newNode = new Node(input, null);
+        Node previousNode = null;
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.data == key) {
+                if (previousNode == null) {
+                    newNode.next = head;
+                    head = newNode;
+                } else {
+                    newNode.next = currentNode;
+                    previousNode.next = newNode;
+                }
+                return; 
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        System.out.println("Key tidak ditemukan dalam linked list");
+    }
+    
+
+    public void insertAt(int index, int input) {
+        if (index < 0) {
+            System.out.println("Indeks tidak valid");
+        } else if (index == 0) {
+            addFirst(input); // Jika indeks 0, tambahkan di awal
+        } else {
+            Node newNode = new Node(input, null);
+            Node previousNode = null;
+            Node currentNode = head;
+            int currentIndex = 0;
+    
+            while (currentNode != null && currentIndex < index) {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+    
+            if (currentNode == null && currentIndex < index) {
+                System.out.println("Indeks melebihi panjang linked list");
+            } else {
+                previousNode.next = newNode;
+                newNode.next = currentNode;
+            }
+        }
+    }
+    
+    public void removeAt(int index) {
+        if (isEmpty()) {
+            System.out.println("Linked list kosong");
+        } else if (index < 0) {
+            System.out.println("Indeks tidak valid");
+        } else if (index == 0) {
+        } else {
+            Node previousNode = null;
+            Node currentNode = head;
+            int currentIndex = 0;
+    
+            while (currentNode != null && currentIndex < index) {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+    
+            if (currentNode == null) {
+                System.out.println("Indeks melebihi panjang linked list");
+            } else {
+                previousNode.next = currentNode.next;
+            }
+        }
+    }
+    
 
 }

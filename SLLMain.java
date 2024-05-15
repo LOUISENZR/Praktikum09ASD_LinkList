@@ -8,6 +8,10 @@ public class SLLMain {
         myLinkedList.print();
         myLinkedList.addLast(500);
         myLinkedList.print();
+        myLinkedList.insertAt(1, 300);
+        myLinkedList.print();
+        myLinkedList.insertBefore(500, 800);
+        myLinkedList.print();
         myLinkedList.insertAfter(700, 300);
         myLinkedList.print();
 
@@ -19,6 +23,8 @@ public class SLLMain {
         myLinkedList.removeFirst();
         myLinkedList.print();
         myLinkedList.removeLast();
+        myLinkedList.print();
+        myLinkedList.removeAt(2);
         myLinkedList.print();
 
     }
